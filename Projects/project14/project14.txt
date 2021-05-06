@@ -1,0 +1,27 @@
+Project 14 
+A Priority Queue
+
+Goal
+This project will give you more practice with inheritance  (PQueue inherits from Queue which inherits from List).  
+
+Summary
+Project 14 asks you to complete the priority queue that we discussed in class. 
+Recall, in a priority queue, nodes are ordered by priority.  I made a change to the basic list node in list.h to give derive functions access to private member variables.
+
+It’s possible that there will be multiple items with the same priority, just as multiple students get to register on the same day.  Add the new item to the beginning of the subsequence of items.  For example, here is a list:
+
+     1  2  3  4  5  6  7
+
+If another 5 comes along, it belongs after 4.
+
+Task
+Find the necessary files in my  .../pauldepalma/CPSC122/H-Queues/proj14 GitHub repository.   Design, write, and test all of the unwritten functions in queue3.cpp.
+
+Constraints
+your program must compile using g++ and run under Linux
+you may not change list.h, list.cpp, queue2.h, queue2.cpp.  You may include additional private functions in queue3.h and queue.cpp.   You may not add or modify member variables or functions already defined.
+
+Submission
+Submit:
+queue3.h, queue3.cpp
+Accept Link:  https://classroom.github.com/a/jfqHMJsn

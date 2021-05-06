@@ -1,0 +1,256 @@
+ListD::listD()
+{
+   head = new dblnode;
+   tail = new dblnode;
+   head->prev = NULL;
+   tail->next = NULL;
+   head->next = tail;
+   tail->prev = head;
+   head->item = INT_MIN;
+   tail->item = INT_MAX;
+   length = 0;
+}
+
+struct dblnode
+{
+   dblnode *prev;
+   itemType item;
+   dblnode *next;
+}
+
+class ListD
+{
+public:
+   // stuff
+
+private:
+   dblenode *headl;
+   dblenode *tail;
+   int length;
+}
+
+// insert for a double linked list
+// when you insert something, it becomes the new position
+// a b c -> insert(d,2) -> a d b c
+Insert(itemType item, int pos)
+{
+   // seems pretty straight forward
+   // create a new node, then change the new node's prev and next
+   // as well as the next nodes prev and the previous nodes next
+
+   dblNode *tmp = new dbleNode;
+   tmp->item = item;
+   dblNode *ptA = findPos(pos); // made up function
+   dbleNode *ptB = ptA->next;
+   ptA->next = tmp; // making the next on A the new node
+   ptB->prev = tmp; // making the prev on B the new node
+   tmp->next = ptB; // making next on new node is B
+   tmp->prev = ptA; // making prev on new node is A
+}
+
+////// next day
+
+ListD::ListD(ListD *lst)
+{
+   MakeDummy();
+
+   //returns pointer to the first node, which is what we want here
+   doubleNode *cur = lst->FindPosition(2);
+   for (int i = 1; i <= lst->length; i++)
+   {
+      Insert(cur->item, i);
+      cur = cur->next;
+   }
+}
+
+void ListD::MakeDummy()
+{ // private
+   head = new dblnode;
+   tail = new dblnode;
+
+   head->prev = NULL;
+   tail->next = NULL;
+
+   head->next = tail;
+   tail->prev = head;
+
+   head->item = INT_MIN;
+   tail->item = INT_MAX;
+
+   length = 0;
+}
+
+/*
+balanced parens
+evaluation
+infixtopostfix
+
+((122+32)*32)
+turn into 
+((A+B)*C)
+
+accept strings:
+"(A+B)*C" and "122 32 32"
+
+parsing: detect syntax errors and transform something into another so its useful
+valuetable:
+26 positions 0-25
+
+findlast finds the index of the last position in the digit string
+so you get to the 1 in ((122+32)) and it outputs 4(the index of the final 2)
+
+add 65 to the index of the table to get the char. so index 0 is labled 'A' (0+65)
+
+AB+C*
+read through values (this is as letters)
+if next is an operand(letter), then push to stack
+if next is an operator take the top off the stack
+lookup to int (to do this subtract 65 from the char val, then use that index in the table)
+take other off stack, lookup int like the previous one, then use the operator on them
+push the result to the value table at the latest position, should be labled D now
+continue, and do multiplication with index 3 (D) and 2 (C)
+
+argv[1] is a pointer to a string
+
+makevaluetbl is one line, just creating a 26 index table
+*/
+findLast(int pos)
+{
+   while (infix[pos] >= '0' && infix[pos] <= '9')
+   {
+      pos++;
+   }
+   return pos;
+}
+/*
+constructor:
+you have argvin[] come in (2+3) is array ending in null '\0'
+*/
+
+void parse()
+{
+   char *tmp = new char[strlen(infix) + 1];
+   copy infix to tmp;
+   do
+      all the converting to letters and stuff delete[] infix;
+   infix = tmp; // this still leaves some EOL left over since there are more indexes in infix than tmp;
+   tmp = null;
+}
+
+/*
+.h file
+Struct(char anfk)
+*/
+
+// CIRCULAR QUEUE
+Private : char *que;
+int size;
+int length;
+int front;
+int back;
+
+Queue(int sizeIn)
+{
+   que = new char[sizeIn];
+   size = sizeIn;
+   length = 0;
+   front = -1;
+   back = -1;
+}
+
+~queue()
+{
+   delete[] que;
+}
+
+void Enqueue(char ch)
+{ // put something at back
+   if (!isFull())
+   {
+      back = (back + 1) % size;
+      Que[back] = ch;
+      length++;
+   }
+}
+
+void Dequeue(char ch)
+{ // get rid of top
+   if (!isEmpty())
+   {
+      front = (front + 1) % size;
+      length--;
+      // there is no need for deleting the value located at front. it will most likeley be written over;
+   }
+}
+
+char Peak()
+{
+   return que[front + 1]; // he said return que[front] but that doesnt make sense and is wrong, silly depalma
+}
+
+bool isFull()
+{
+   return (length == size);
+}
+
+bool isEmpty()
+{
+   return (length == 0);
+}
+
+qeues requore front and back ponters
+dqeue from the front, inqeue from the back
+
+circular list - when the end of the list is reached, restart the list.
+b = (current b + 1) mod size of array - this is when you run out of positions in the queue (assuming its not full)
+its full if f == b, but depalma doesnt like that idea
+
+f 
+|
+V 
+[][B][C][D]E]
+           ^
+           |
+           b
+becomes 
+f 
+|
+V 
+[F][B][C][D]E]
+ ^
+ |
+ b
+
+
+
+// next topic 
+////////////////////////////////// THIS IS THE TOPIC OF THE FINAL 
+// RECURSIVE
+
+// the function invokes itself
+
+// 4*3*2*1 = 4!
+int fact(int n)
+{
+   int i = n int toal = 1;
+   while (i > 0)
+   {
+      total = total * i;
+      i--;
+   }
+}
+4 ! = 4 * 3 !;
+3 ! = 3 * 2 !;
+2 ! = 2 * 1 !;
+1 ! = 1 * 0 !;
+0 ! = 1;
+
+int fact(int n)
+{
+   if (n == 0)
+   {
+      return 1;
+   }
+   return (n * fact(n - 1));
+}
+

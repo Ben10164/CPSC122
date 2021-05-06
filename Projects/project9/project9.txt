@@ -1,0 +1,38 @@
+Project 9 
+Writing a Linked List Class
+Goal
+Develop skill with classes
+Develop skill with pointers
+Learn how to build a pointer-based list
+Develop skill with dynamically allocated memory
+
+Summary
+The drawback of arrays is that the number of items to be stored has be to be known in advance of execution.  A linked list used dynamically allocated memory to overcome that drawback. 
+Variables declared like this: string str; are, in fact, instances of class string.   With this project you will learn how to build your own string class.  Files referenced below are found in my GitHub repository: .../pauldepalma/CPSC122/F-Lists
+
+Here is the project:
+1. Implement every function defined in 2-List.h
+2. The implementations go in 2-List.cpp
+3. You may not add private member variables to 2-List.h
+4. You may add private member functions to 2-List.h and implement them in 2-List.cpp.
+5. You must construct two tests for each public function except the constructor and destructor.  These tests will be part of 2-ListTst.cpp.  I have written the tests for Print for you as examples.  The two tests should not necessarily be the same test for the static and dynamic instance of the class.  
+6. All tests are commented out, as I have done for the test of Print. We (the TAs and I) will uncomment them as we see fit.  Beyond testing your work, the tests will indicate your understanding of what is required in this project.
+
+
+Command Line Inputs 
+name of executable
+
+Output
+output appropriate to the function being tested.
+
+Usage Example
+./a.out 
+Useful Information
+http://www.cplusplus.com
+Submission
+Over Blackboard, submit:
+2-List.h
+2-List..cpp
+2-ListTst.c;pp
+
+Open Blackboard. Find CPSC 122 and the proper section.  Click content.  Click the name of the project. Navigate to files to be submitted on your computer.  Submit them.   If you are working as a team, make only one submission, but include both names in the header details. 

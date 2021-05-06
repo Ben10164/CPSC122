@@ -1,0 +1,152 @@
+Project 6
+The Affine Cipher
+Goal
+Develop skill with file i/o
+Develop skill with command line arguments
+Work with a dictionary, a data structure. 
+
+Summary
+The Caesar cipher has a tiny key space.  We can expand it considerably with a little modular arithmetic.
+
+What You Will Learn
+As with the Project 5, this project will provide practice in file and character manipulation, and functional decomposition.  It will also introduce you to some interesting modular arithmetic and a new data structure, the dictionary, with a search complexity of O(1).  
+
+Definition of the Affine Cipher
+The affine cipher is a generalization of the Caesar cipher: 
+
+
+
+
+where x is the positional value in the alphabet of any alphabetic character, p  is an integer that renders the expression within parentheses positive, and a-1 is the multiplicative inverse a.     A multiplicative inverse of a number, a, is that number, denoted a-1, which when multiplied by a, gives a product of 1.  Among the rational numbers, the multiplicative inverse of 7 is 1/7.   How to store multiplicative inverses is explained in Useful Information, below. 
+
+The affine enlarges the key space of the Caesar, considerably. Notice that the affine cipher with ɑ = ɑ-1 = 1 is the Caesar cipher.
+
+Decrypt has the potential to produce negative numbers.   Determine the smallest negative integer that might be produced.  Now determine how many multiples of 26 must be added to that negative integer, which, when modded by 26 will produce an integer in the range [0..25].  Store this as a global constant, since it will never change.   
+
+What happens if you overshoot and produce a positive number > 25? The full concept is beyond the scope of this course, but here’s an outline.
+
+Suppose you have a = 4, b = 11, and n = 7.  Notice that a % n == b % n.  That is 4 and 11 give the same remainder when divided by 7.   We say that 4 is congruent to 11 modulus 7, written:  
+
+The idea is this.  Given a negative number, p, you want to add multiples of the modulus until you get a positive integer, q.   q will be congruent to p, “equal” in this curious modular sense.    
+
+Command Line Inputs 
+keyFile, file containing key
+fileIn, name of file to be read. Its contents are to be encrypted or decrypted
+fileOut, name of file to be written to
+mode, integer indicating mode of operation:
+0 generate key and store in keyFile
+1 encrypt contents of fileIn and store results in fileOut
+2 decrypt contents of fileIn and store results in fileOut
+
+Output
+file containing key or
+file containing cipher text or
+file containing decrypted cipher text 
+
+Usage
+There are three possibilities:
+Generate the key: ./a.out 0 keyFile 
+Encrypt plaintext: ./a.out 1 keyFile  inFile outFile
+Decrypt ciphertext: ./a.out 2 keyFile inFile outFile
+Notice that 2 and 3 look the same, but 2 encrypts and 3 decrypts
+
+
+Required Functions
+/*
+Description: Randomly generates and stores alpha and beta values.
+The alpha value is randomly drawn from the the set: 
+{1,3,5,7,9,11,15,17,19,21, 23,25}
+The beta value is randomly drawn from the range: [1..25]  
+Input: name of file that stores the keys
+Output: alpha and beta values on subsequent lines of keyFile
+*/
+	void keyGen (string keyFile)
+
+	/*
+Description: Encrypts an upper case alphabetic character using the affine cipher
+Input: upper case alphabetic character, valid alpha and beta values
+Returns: encrypted version of ch
+	*/
+	char encrypt (char ch, int alpha, int beta)
+
+	/*
+Description: Decrypts an upper case alphabetic character using the affine cipher
+Input: upper case alphabetic character, valid alpha and beta values. Dictionary of multiplicative inverse values mod 26
+Returns: decrypted version of input character
+	*/
+	char decrypt (char ch, int alpha, int beta, int MI[])
+
+/*
+Description: invokes fileOpen on all files.  closes all files.  Reads key file. Reads the input file and either invokes encrypt or decrypt,  depending on the value of mode.  Writes to the output file. 
+Input: names of key file, input file and output file. mode value of 1 or 2
+Output: writes to the output file
+	*/
+	void fileControl (string keyFile, string fileIn string fileOut, int mode)
+
+	/*
+	Description: function opens a file
+     	Input: file stream object reference, name of the file, mode of open
+Output: input file name is opened. 
+*/
+void fileOpen(fstream&, string name, char mode)
+Relevant Example Programs
+These example programs from my GitHub repository will help you with this project:
+../C-SortSearch/4-dict.cpp
+../B-Files/5-ioChar.cpp
+../B-Files/3-ioInt.cpp
+../B-Files/1-commandLine.cpp
+../B-Files/2-commandLine.cpp
+../B-Files/4-commandLineFile.cpp
+../B-Files/7-openFileError.cpp
+../A-JavaToC++/ex6.cpp
+
+Useful Information
+http://www.cplusplus.com, expecially http://www.cplusplus.com/reference/cctype
+Modulus and our discussion of the ASCII table are essential to the solution to this problem
+In C++ you can do arithmetic on variables of type char
+The multiplicative inverse of integer n, is that number i, such that a*i = 1.
+If n = 7, then i = 1/7, for example
+Not all integers % 26 have multiplicative inverses.  This limits the alpha values. The positive integers that have multiplicative inverses % 26 of with their multiplicative inverses are:
+1	1
+3	9
+5	21
+7	15
+11	19
+17	23
+19	11
+25	25 
+For example (19 * 11) % 26 = 1
+Can you see the pattern?
+Use a dictionary for the multiplicative inverses.  You can implement a simple dictionary using an array.   Imagine a 26 position array with multiplicative inverses stored at the position corresponding to their values, 1 at index position 1, 9 at index position 3, 21 at index position 5 and so forth.   Those indices without corresponding multiplicative inverses will store zeroes.  Here’s part of the array:
+0
+1
+0
+9
+0
+21
+0
+15
+...
+
+Suppose this array is called MI.   MI[3] holds the multiplicative inverse of 3 mod 26, 9.   Notice, (3 * 9) % 26 = 1
+
+The Biggest Hint of All
+Start with main from Project 5
+Delete all function prototypes except encrypt and decrypt.
+Modify the prototypes for encrypt and decrypt.
+Write encrypt.
+Invoke encrypt from main with hard-coded alpha, beta, and alphabet symbols.
+cout the result.
+Continue 4 - 6 until encrypt works.
+Write decrypt.
+Invoke encrypt from main with hard-coded alpha, beta, and alphabet symbols
+Invoke decrypt with the output of input, hard-coded alpha, beta values and a hard-coded array of multiplicative inverses. 
+Output the result.
+Continue steps 8 through 12 until decrypt works.
+Finish the program.  It will be almost identical to Project 5
+
+
+Submission
+Submit project6.cpp over Blackboard. Bring up Blackboard.  Find CPSC 122 and the proper section.  Click content.  Click the name of the project.  Navigate to project6..cpp on your computer.  Submit it.  If you are working as a team, make only one submission but include both names in the header details. 
+
+

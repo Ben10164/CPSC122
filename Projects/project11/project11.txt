@@ -1,0 +1,41 @@
+Project 11
+A Doubly Linked, Templated List
+Goal
+Push your skill with dynamically allocated memory to the next level
+Practice with careful program design
+Practice with templates
+
+Summary
+The project will give you practice with C++ classes, with separation of specification (.h file) from implementation, with dynamically allocated memory, and with the all-important data structure, linked list.
+
+Task 1 (20 points)
+Your program will Implement all of the functions specified in my GitHub repository found at CPSC122/F-Lists/4-ListsD.h 
+
+Task 2 (10 points)
+Add templating to the class developed in Task 1.  Use 5-ListTmpl.h/.cpp as an example.
+
+How To Proceed
+1. Write Insert.  Compile/test your work.
+2. Write PrintBackward.  Compile/test your work.
+3. Write FindPosition.  Compile/test your work.
+4. Write Delete.  Compile/test your work.
+5. Write the Destructor.  Compile/test your work.
+6. Write DeleteAll.  Compile/test your work.
+7. Write Sort. Compile/test your work.
+8. Make a copy of your implementation file. Call it 4-ListsDSave.cpp
+9. Delete all code from 4-ListsD.cpp
+10. Copy the constructor and the struct for node from 4-ListsDSave.cpp to 4-ListsD.spp
+11. Template the constructor and the struct for Compile/test your work.
+12. Copy Insert from 4-LIstDSave.cpp to 4-ListsD.cpp
+13. Template Insert.  Compile/test your work.
+14. Do what you did with Insert for the balance of the functions, one by one. 
+17. Test all of  your functions again.
+18. Submit your code as described below. 
+
+Useful Information
+http://www.cplusplus.com
+
+Submission
+Over Blackboard, submit:
+4-ListD.h
+4-ListD.cpp

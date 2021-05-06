@@ -1,0 +1,49 @@
+Project 4
+Practice with Primes
+
+Goal
+Resurrect your C++ skills
+Demonstrate that you can write to an output file
+
+Summary
+Develop a program that generates prime numbers
+Write the prime numbers to a file
+
+Inputs 
+Number of prime numbers to be generated (see .../JavaToC++/ex5.cpp)
+Number of columns in the display (see .../JavaToC++/ex4.cpp)
+Name of an output file gotten from the command line (see .../B-Files/4-commandLineFile.cpp)
+
+Output
+A file with X prime numbers distributed across Y columns, where X is the first and Y is the second parameter under “Inputs.”
+
+Behavior
+The program will:
+Accept an output file name from the command line
+Ask the user how many prime numbers should be generated.  Let’s call this X for now.
+Ask the user how many columns should appear in the display. Let’s call this Y for now. 
+Generate the first X prime numbers and display them over Y columns in an output file.
+Display an error message and exit if an incorrect number of command line parameters is entered.
+
+Usage ./project1 project1.out
+
+Other Requirements
+The program file is named: project1.cpp
+Program must follow class coding standards
+No global variables
+The program is decomposed such that the major work occurs outside of main()
+The program has at least this function:
+	/*
+	Description: Determines whether input integer is prime
+	Input: integer whose primality is to be judged
+            Returns: true if num is prime, false otherwise
+	*/
+	bool isPrime(int num)
+
+Bonus +5 
+There is an obvious way to determine if an integer is prime and a much more efficient, but less obvious way.   There is only one correct answer.  Use the more efficient way in your solution.  Also, include  in your header, a description of your more efficient algorithm. 
+
+Submission
+Submit project4.cpp over Blackboard. Bring up Blackboard.  Find CPSC 122 and the proper section.  Click content.  Click the name of the project.  Navigate to project1.cpp on your computer.  Submit it.  If you are working as a team, make only one submission but include both names in the header details. 
+
+

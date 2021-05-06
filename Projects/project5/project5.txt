@@ -1,0 +1,72 @@
+Project 5
+The Caesar Cipher
+
+Goal
+Develop skill with file i/o
+Develop skill with command line arguments
+
+Summary
+Write a program that uses the Caesar cipher to encrypt/decrypt a file
+
+Command Line Inputs 
+Name of file containing original plain text, PTfile for reference below
+Name of file containing cipher text, CTfile for reference below
+Name of file containing decrypted cipher text, PTEfile for reference below
+Name of file containing key, keyFile for reference below
+Integer indicating mode of operation:
+0 generate key and store in keyFile
+1 encrypt contents of PTfile and store the result in CTfile
+2 decrypt contents of CTfile and store the result in PTEfile
+
+Output
+One of: keyFile, PTfile, CTfile, PTEfile 
+
+Usage
+There are three possibilities:
+Generate the key: ./a.out 0 keyFile 
+Encrypt plaintext: ./a.out 1 keyFile PTfile CTfile
+Decrypt ciphertext: ./a.out 2 keyFile CTfile, PTEfile
+
+Other Requirements and Advice
+The program file is named: project5.cpp
+Program must follow class coding standards
+No global variables
+Do a git pull on my GitHub repository to get the latest version of the function, fileOpen, describe below
+The program is decomposed such that the major work occurs outside of main()
+The program has at least these functions:
+
+/*
+Description: Randomly generates an integer in the range: [1..25]
+Input: none
+Output: returns a randomly generated integer in the range [1..25]
+*/
+	int keyGen ()
+
+	/*
+Description: Encrypts an upper case alphabetic character using the Caesar cipher
+Input: upper case alphabetic character, valid key
+Returns: encrypted version of ch
+	*/
+	char encrypt (char ch, int key)
+
+	/*
+Description: Decrypts an upper case alphabetic character using the Caesar cipher
+Input: upper case alphabetic character, valid key
+Returns: decrypted version of input
+	*/
+	char decrypt (char ch, int key)
+
+	/*
+	Description: function opens a file
+     	Input: file stream object reference, name of the file, mode of open
+Output: input file name is opened. 
+*/
+void fileOpen(fstream&, string name, char mode)
+//this function may be found in 7-openFileError.cpp and used without change
+
+
+
+Submission
+Submit project5.cpp over Blackboard. Bring up Blackboard.  Find CPSC 122 and the proper section.  Click content.  Click the name of the project.  Navigate to project5..cpp on your computer.  Submit it.  If you are working as a team, make only one submission but include both names in the header details. 
+
+

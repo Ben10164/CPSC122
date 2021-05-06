@@ -1,0 +1,6 @@
+**/a.out
+.vscode
+Projects/**.out
+Practice/**.out
+Practice/pi.txt
+testpad

@@ -1,0 +1,24 @@
+Project 13 
+A Calculator, Part II 
+Goal
+This project will give you practiced with C++ code reuse mechanisms (inheritance and composition), along with practice using a stack
+
+Summary
+Project 13 completes the calculator project.  Project 13, like Project 12,  creates a class called calc.  calc uses class stack which inherits from class list.  The files necessary for this assignment may be found in my GitHub repository at:
+.../pauldepalma/CPSC122/G-Stacks/proj13
+
+Task
+Find calc.h in the .../pauldepalma/CPSC122/G-Stacks/proj13.  Write all of the functions in calc.cpp that you did not write as part of Project 12.  Test these functions using your own version of calcTest.cpp.  
+In essence, write functions to:
+transform an expression from infix to postfix
+display a postfix expression
+evaluate a postfix expression with data entered from the command line
+
+Constraints
+your program must compile using g++ and run under Linux
+you may not change list.h, list.cpp, stack2.h, stack2.cpp.  You may include additional private functions in calc.h You may not add or modify member variables or functions already defined.
+
+Submission
+Submit:
+calc.h, calc.cpp
+Accept Link:  https://classroom.github.com/a/rdXJS49I

@@ -1,0 +1,192 @@
+Project 7 
+The Transposition Cipher
+Goal
+Develop skill with file i/o
+Develop skill with command line arguments
+Develop skill with 2-D arrays 
+
+Summary
+Both Caesar and affine have tiny key spaces.    The transposition cipher, as described in class and illustrated below, expands the key space to 26! - 1. 
+
+What You Will Learn
+As with the Projects 5 and 6,  this project will provide practice in file and character manipulation.  You will also learn how to implement selection sort with a 2-D array. 
+
+Background
+The affine cipher was an improvement over the Caesar cipher, since it expanded the key space from 25 to 311.  The transposition cipher makes an even larger leap to 26! - 1 possible keys.  This time the cipher is entirely embedded in the key.  There is no additional arithmetic processing at all.  Key generation has two parts. 
+
+Part 1: Generate the Encrypt Key
+The trick is to keep track of the random integers that have already been generated.
+
+Here’s a possible algorithm
+
+key is a 26 position integer array. 
+validate is a 26 position boolean array with every position set to false
+false in position k, for example, means k has not been randomly generated.
+pos = 0
+while(pos < 26)
+    while (true)
+randomly generate an integer, k, in the range[0..25]
+if position k in validate is false, you’ve found a number not yet used
+key[pos] = k
+validate[k] = true  #this number has been used
+pos++
+break
+
+Suppose we have a tiny alphabet: A, B, C, D.  You’ve generated 3,1,0,2.  Life will be easier if you store the integers rather than the characters. 3,1,0,2 corresponds to D,B,A,C 
+
+The illustration is with letters.  Either letters or the corresponding positions will work. 
+The important data structure is a 2D array with the plaintext alphabet in column 0 and the ciphertext alphabet in column 1.
+
+A
+D
+B
+B
+C
+A
+D
+C
+
+
+In this example, C maps to A.  Said another way, enc(C) → A
+
+We are keeping the 2-D array around for the next step.  To encrypt, only the column 1 is necessary:
+
+D
+B
+A
+C
+
+
+To encrypt C, find its positional value in the alphabet, 2, of course.  Go to that array position and find its encryption, namely, A
+
+Part 2: Generate the Decrypt  Key
+
+Generating the decrypt key is a little harder.  
+Step A. Flip the array 180 degrees, so the col 1 becomes col 0 and vice-versa
+
+D
+A
+B
+B
+A
+C
+C
+D
+
+
+Step B. Sort col 0, but take col 1 along for the ride.
+
+A
+C
+B
+B
+C
+D
+D
+A
+
+
+Now, A maps to C.  Said another way, dec(A) → C
+Just as in encrypt, only column 1 is necessary:
+
+
+C
+B
+D
+A
+
+
+To decrypt A, find its positional value in the alphabet, 0, of course.  Go to that array position and find its decryption, namely, C
+
+Note that encryption and decryption are identical.  The only difference is that encrypt uses the encrypt key and decrypt uses the decrypt key.
+
+
+Command Line Inputs 
+keyFile, file containing key
+fileIn, name of file to be read. Its contents are to be encrypted or decrypted
+fileOut, name of file to be written to
+mode, integer indicating mode of operation:
+0 generate key and store in keyFile
+1 encrypt contents of fileIn and store results in fileOut
+2 decrypt contents of fileIn and store results in fileOut
+
+Output
+file containing encryption/decryption keys or 
+file containing cipher text or
+file containing decrypted cipher text 
+
+Usage
+There are three possibilities:
+Generate the key: ./a.out 0 keyFile 
+Encrypt plaintext: ./a.out 1 keyFile  inFile outFile
+Decrypt ciphertext: ./a.out 2 keyFile inFile outFile
+
+Notice that 2 and 3 look the same, but 2 encrypts and 3 decrypts
+
+
+Required Functions
+/*
+Description: Opens key file for writing.  Generates and stores encrypt and decrypt keys in the key file.   This can be stored any way that you like as long as two arrays can be constructed from the file, one for encryption and one for decryption. 
+Input: name of the file in which to store generated keys
+Output: file holds generated encryption and decryption keys 
+*/
+	void keyGen (string keyFile)
+
+	
+/*
+Description: Processes files, invokes function to encrypt/decrypt characters
+1. Reads key file. Constructs a two arrays, one for encryption, one for decryption.
+2. Closes key file
+2. Opens the character input file.  This could be plain text or cipher text.
+3. Opens the character output file  This could be plain text or cipher text.
+4. Reads the input file a character at a time.  Passes transform (see below) the character to be encrypted/decrypted and a reference to  the encrypt or decrypt array, depending on the mode.
+5.  Writes a character (encrypted/decrypted/passed over) to the output file.
+6. Close the input file and output file
+Output: writes a character to the output file
+	*/
+	void fileControl (string keyFile, string fileIn string fileOut, int mode)
+
+/*
+Description: Encrypts/Decrypts an upper case alphabetic character using the transposition cipher. Operation depends on whether it is sent the encrypt or decrypt key
+Input: upper case alphabetic character, encryption or decryption array
+Returns: encrypted or decrypted  version of ch
+	*/
+	char transform(char ch, int encDec[])
+
+
+	/*
+	Description: function opens a file
+     	Input: file stream object reference, name of the file, mode of open
+Output: input file name is opened. 
+*/
+void fileOpen(fstream&, string name, char mode)
+
+How To Complete this Project while Minimizing Your  Unhappiness
+The structure of this program is very similar to the previous two programs.  Copy project6.cpp, for example, to project7.cpp.
+Step 1: Create a constant, say 4.  This will be your alphabet size for testing.
+When you are satisfied with your results, you need only change the constant to 26.
+Step 2: Get keyGen working for the encrypt key with the small alphabet
+Step 3: Get fileControl and transform working for encrypt with the small alphabet
+Step 4: Get keyGen working for the decrypt key with the small alphabet
+Step 5: Get fileControl and transform working for decrypt with the small alphabet
+Step 6: Increase the constant size to 26
+Step 7: Test thoroughly
+
+
+Relevant Example Programs
+These example programs from my GitHub repository will help you with this project:
+../B-Files/5-ioChar.cpp
+../B-Files/3-ioInt.cpp
+../B-Files/1-commandLine.cpp
+../B-Files/2-commandLine.cpp
+../B-Files/4-commandLineFile.cpp
+../B-Files/7-openFileError.cpp
+../C-SortSearch/1-SelectionSort.cpp
+../C-SortSearch/3-2DArray.cpp
+
+Useful Information
+http://www.cplusplus.com, expecially http://www.cplusplus.com/reference/cctype
+Modulus and our discussion of the ASCII table are essential to the solution to this problem
+
+Submission
+Submit project7.cpp over Blackboard. Bring up Blackboard.  Find CPSC 122 and the proper section.  Click content.  Click the name of the project.  Navigate to project7.cpp on your computer.  Submit it.  If you are working as a team, make only one submission but include both names in the header details. 

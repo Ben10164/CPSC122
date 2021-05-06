@@ -1,0 +1,46 @@
+Project 10 
+Writing a Linked List Class with both Head and Tail Pointers
+Goal
+Develop skill with classes
+Develop skill with pointers
+Learn how to build a pointer-based list
+Develop skill with dynamically allocated memory
+Extend your linked list skill to a more complex list structure
+
+Summary
+Everything said about linked lists with head pointers applies to linked lists with head and tail pointers.
+The introduction of a tail pointer will require that you modify some of the functions you wrote for Project 9. 
+Here is the way to proceed:
+1. Copy your implementation file from project 9 to project 10.  
+2. Add empty functions for all the new functions from project 10.   
+3. For each function in project 9, think about if the addition of a tail pointer will require a change.  If so, make changes 1 by 1.
+4. Write the code for new functions in project 10.  PutItemT is the place to start.  Under no circumstances should you proceed to, say Function B, until Function A has been written, compiled, and thoroughly tested.
+
+
+
+The Project
+1. Implement every function defined in 3-ListT.h.  You’ll find it in my GitHub repository:.../pauldepalma/CPSC122/F-Lists
+2. The implementations go in 3-ListT.cpp
+3. You may not add private member variables to 3-ListT.h
+4. You may add private member functions to 3-ListT.h and implement them in 3-ListT.cpp.
+5. You must construct tests for each function, including the constructor and destructor. In some cases, more than one test is necessary.  In others, say the constructor or destructor, only one test is necessary. 
+	These tests will be part of 3-ListTtst.cpp.   
+6. Comment out each test out using block comments, when the test is explicitly invoked in the test file.  For those, not explicitly invoked, say the destructor and PtrTo, you could use test code within the functions (the destructor) or in the calling function (PtrTo).  Again, all test code is to be commented out.  
+
+Command Line Inputs 
+name of executable
+
+Output
+output appropriate to the function being tested.
+
+Usage Example
+./a.out 
+Useful Information
+http://www.cplusplus.com
+Submission
+Over Blackboard, submit:
+3-ListT.h
+3-ListT..cpp
+3-ListTtst.c;pp
+
+Open Blackboard. Find CPSC 122 and the proper section.  Click content.  Click the name of the project. Navigate to files to be submitted on your computer.  Submit them.   If you are working as a team, make only one submission, but include both names in the header details. 

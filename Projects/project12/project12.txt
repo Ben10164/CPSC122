@@ -1,0 +1,20 @@
+Project 12 
+A Calculator 
+Goal
+This project will give you practiced with C++ code reuse mechanisms (inheritance and composition), along with practice using a stack
+
+Summary
+Project 12 is the infrastructure for a calculator that can do the four arithmetic operations on integers.  Project 12 creates a class called calc.  calc uses class stack which inherits from class list.  The files necessary for this assignment may be found in my GitHub repository at:
+.../pauldepalma/CPSC122/G-Stacks/proj12
+
+Task
+Find calc.h in the .../pauldepalma/CPSC122/G-Stacks/proj12.  Write all of the functions in calc.cpp.   Test these functions using calcTest.cpp.  
+
+Constraints
+your program must compile using g++ and run under Linux
+you may not change list.h, list.cpp, stack2.h, stack2.cpp.  You may include additional private functions in calc.h You may not add or modify member variables or functions already defined.
+
+Submission
+Submit:
+calc.h, calc.cpp
+Accept Link:  https://classroom.github.com/a/FpyH7Lov

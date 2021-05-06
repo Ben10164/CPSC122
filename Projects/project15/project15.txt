@@ -1,0 +1,24 @@
+Project 15 
+A Recursive Linked List
+
+Executive Summary
+Project 15 is a version of class List in which all of the traversals are to be done recursively.
+
+What You Will Learn
+Project 15 will give you practice writing realistic recursive functions
+
+Task
+Implement all of the functions found in my github repository at: .../CPSC122/I-Recursion/proj15/list.h/ and which are not already implemented in list.cpp. 
+
+Write and test functions in the order in which they appear in list.cpp
+
+Hint: I have defined a companion function to Print() in the private section of the .h file.  It is named “Print(node* cur).  This function should give you a clue about how to implement the recursive functions specified in list.cpp.
+
+Constraints
+Your program must compile using g++ and run under Linux
+You may add utility functions to the Private section of list.h.  You may not add member variables, public functions, or revise any of the functions already defined.
+
+Submission
+Submit:
+list.h, list.cpp
+Accept Link:  https://classroom.github.com/a/OquLkkji

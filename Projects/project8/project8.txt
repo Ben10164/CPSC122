@@ -1,0 +1,39 @@
+Project 8 
+Writing a String Class
+Goal
+Develop skill with classes
+Develop skill with pointers
+
+Summary
+Variables declared like this: string str; are, in fact, instances of class string.   With this project you will learn how to build your own string class.  Files referenced below are found in my GitHub repository: .../pauldepalma/CPSC122/E-Pointers
+
+Here is the project:
+1. Implement every function defined in 8-MyStr.h
+2. The implementations go in 8-MyStr.cpp
+3. You may not add private member variables to 8-MyStr.h
+4. You may add private member functions to 8-MyStr.h and implement them in 8-MyStr.cpp.
+5. You must construct two tests for each public function except the constructor and destructor.  These tests will be part of 8-MyStrTst.cpp.  I have written the test for myDisplay for you as examples.  The two tests should not necessarily be the same test for the static and dynamic instance of the class.  
+6. All tests are commented out, as I have done for the test of myDisplay. We (the TAs and I) will uncomment them as we see fit.  Beyond testing your work, the tests will indicate your understanding of what is required in this project.
+7. Use functions from the library <cstring> (as demonstrated in class) whenever possible.  The three exceptions are myStrLen, myStrcopy, and isEqual. Write these without using the cstring library.
+
+
+Command Line Inputs 
+name of executable
+a sequence of characters (enclosed by apostrophes if the sequence contains a space
+
+Output
+output appropriate the function being tested.
+
+Usage Example
+./a.out “These are the days when birds come back”
+
+Useful Information
+http://www.cplusplus.com, expecially https://www.cplusplus.com/reference/cstring/?kw=cstring
+
+Submission
+Over Blackboard, submit:
+8-MyString.h
+8-MyString.cpp
+8-MyStringTst.c;pp
+
+Open Blackboard. Find CPSC 122 and the proper section.  Click content.  Click the name of the project. Navigate to files to be submitted on your computer.  Submit them.   If you are working as a team, make only one submission, but include both names in the header details. 
