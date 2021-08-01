@@ -11,8 +11,12 @@ int main(int argc, char *argv[])
 {
    ofstream outputFile;
    vector<int> nums;
-   int k = 0, tries = 1, amount = atoi(argv[1]);
-   srand(time(NULL));
+   int k = 0, tries = 1, amount = 5;
+   if (argc > 1)
+   {
+      amount = atoi(argv[1]);
+   }
+   std::srand(time(NULL));
    outputFile.open("outputBogo.out");
    for (int q = 1; q <= amount; q++)
    {
